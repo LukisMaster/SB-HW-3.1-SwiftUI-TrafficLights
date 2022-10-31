@@ -18,17 +18,7 @@ struct ContentView: View {
                 TrafficLightCircle(state: yellowLight, color: .yellow)
                 TrafficLightCircle(state: greenLight, color: .green)
                 Spacer()
-                Button(action: nextStepTrafficLight) {
-                    ZStack {
-                        Capsule(style: .continuous)
-                            .frame(width: 150, height: 50, alignment: .center)
-                            .overlay(Capsule().stroke(.white, lineWidth: 5))
-                        Text(buttonText)
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                    }
-                }
-
+                ActionButton(text: buttonText, action: nextStepTrafficLight)
             }
             .padding()
         }

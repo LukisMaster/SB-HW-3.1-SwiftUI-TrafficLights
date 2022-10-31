@@ -13,6 +13,7 @@
 		2D560291291010DF00D70E96 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D560290291010DF00D70E96 /* Preview Assets.xcassets */; };
 		2D56029829103D3000D70E96 /* TrafficLightCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56029729103D3000D70E96 /* TrafficLightCircle.swift */; };
 		2D56029A29106F9600D70E96 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56029929106F9600D70E96 /* Model.swift */; };
+		2D56029C2910811500D70E96 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56029B2910811500D70E96 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2D560290291010DF00D70E96 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2D56029729103D3000D70E96 /* TrafficLightCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightCircle.swift; sourceTree = "<group>"; };
 		2D56029929106F9600D70E96 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2D56029B2910811500D70E96 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				2D560289291010DE00D70E96 /* SB_HW_3_1_SwiftUI_TrafficLightsApp.swift */,
 				2D56028B291010DE00D70E96 /* ContentView.swift */,
+				2D56029B2910811500D70E96 /* ActionButton.swift */,
 				2D56029729103D3000D70E96 /* TrafficLightCircle.swift */,
 				2D56029929106F9600D70E96 /* Model.swift */,
 				2D56028D291010DF00D70E96 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				2D56028C291010DE00D70E96 /* ContentView.swift in Sources */,
 				2D56028A291010DE00D70E96 /* SB_HW_3_1_SwiftUI_TrafficLightsApp.swift in Sources */,
 				2D56029A29106F9600D70E96 /* Model.swift in Sources */,
+				2D56029C2910811500D70E96 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

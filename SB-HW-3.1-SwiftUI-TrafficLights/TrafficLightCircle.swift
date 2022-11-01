@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrafficLightCircle: View {
     
-    let state: TrafficLightState
+    let blackOut: Double
     let color: Color
     
     var body: some View {
@@ -20,7 +20,7 @@ struct TrafficLightCircle: View {
                 .overlay(Circle().stroke(.white, lineWidth: 5))
             Circle()
                 .frame(width: 100, height: 100)
-                .foregroundColor(.black.opacity(state.rawValue))
+                .foregroundColor(.black.opacity(blackOut))
                 .overlay(Circle().stroke(.white, lineWidth: 5))
         }
     }
@@ -29,6 +29,6 @@ struct TrafficLightCircle: View {
 
 struct TrafficLightCircle_Previews: PreviewProvider {
     static var previews: some View {
-        TrafficLightCircle(state: .dark,color: .red)
+        TrafficLightCircle(blackOut: 0.1 ,color: .red)
     }
 }

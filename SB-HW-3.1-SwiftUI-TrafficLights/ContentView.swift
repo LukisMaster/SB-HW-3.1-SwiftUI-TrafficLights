@@ -9,37 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var buttonText = "Start"
-    @State private var trafficColor: TrafficLightColor?
-    @State private var redLight = TrafficLightState.dark
-    @State private var yellowLight = TrafficLightState.dark
-    @State private var greenLight = TrafficLightState.dark
-    
-    private func nextStepTrafficLight() {
-        if trafficColor != nil {
-            switchLight()
-        } else {
-            buttonText = "Next"
-            trafficColor = .red
-            redLight = .light
+    private enum TrafficLightColor {
+        case none
+        case red
+        case yellow
+        case green
+        
+        mutating func nextLight () {
+            switch self {
+            case .red:
+                self = .yellow
+            case .yellow:
+                self = .green
+            case .none:
+                fallthrough
+            case .green:
+                self = .red
+            }
         }
     }
     
-    private func switchLight () {
-        switch trafficColor {
-        case .red :
-            redLight.switchLight()
-            yellowLight.switchLight()
-        case .yellow :
-            yellowLight.switchLight()
-            greenLight.switchLight()
-        case .green :
-            greenLight.switchLight()
-            redLight.switchLight()
-        case .none:
-            break
+    @State private var buttonText = "Start"
+    @State private var currentTrafficColor = TrafficLightColor.none
+
+    private let dark = 0.4
+    private let light = 0.0
+    
+    private func nextStepTrafficLight() {
+        currentTrafficColor.nextLight()
+        if currentTrafficColor == .none {
+            buttonText = "Next"
         }
-        trafficColor?.nextLight()
     }
 }
 
@@ -48,12 +48,12 @@ struct ContentView: View {
 extension ContentView {
     var body: some View {
         ZStack {
-            Color(.gray)
+            Color(hue: 0.9, saturation: 0.2, brightness: 0.05, opacity: 0.97)
                 .ignoresSafeArea()
             VStack(spacing: 20) {
-                TrafficLightCircle(state: redLight, color: .red)
-                TrafficLightCircle(state: yellowLight, color: .yellow)
-                TrafficLightCircle(state: greenLight, color: .green)
+                TrafficLightCircle(blackOut: currentTrafficColor == .red ? light : dark, color: .red)
+                TrafficLightCircle(blackOut: currentTrafficColor == .yellow ? light : dark, color: .yellow)
+                TrafficLightCircle(blackOut: currentTrafficColor == .green ? light : dark, color: .green)
                 Spacer()
                 ActionButton(text: buttonText, action: nextStepTrafficLight)
             }

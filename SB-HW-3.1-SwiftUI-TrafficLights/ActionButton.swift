@@ -8,25 +8,27 @@
 import SwiftUI
 
 struct ActionButton: View {
+    
+    let text : String
+    let action : () -> ()
+    
     var body: some View {
-        Button(action: action ?? {}) {
+        Button(action: action) {
             ZStack {
                 Capsule(style: .continuous)
-                    .frame(width: 150, height: 50, alignment: .center)
-                    .overlay(Capsule().stroke(.white, lineWidth: 5))
+                    .frame(width: 150, height: 50)
+                    .overlay(Capsule()
+                        .stroke(.white, lineWidth: 5))
                 Text(text)
                     .font(.largeTitle)
                     .foregroundColor(.white)
             }
         }
     }
-    
-    var text : String = "Start"
-    var action : (() -> ())?
 }
 
 struct ActionButton_Previews: PreviewProvider {
     static var previews: some View {
-        ActionButton()
+        ActionButton(text: "Start", action: {})
     }
 }

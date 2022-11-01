@@ -9,23 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    var body: some View {
-        ZStack {
-            Color(.gray)
-                .ignoresSafeArea()
-            VStack(spacing: 20) {
-                TrafficLightCircle(state: redLight, color: .red)
-                TrafficLightCircle(state: yellowLight, color: .yellow)
-                TrafficLightCircle(state: greenLight, color: .green)
-                Spacer()
-                ActionButton(text: buttonText, action: nextStepTrafficLight)
-            }
-            .padding()
-        }
-    }
-    
     @State private var buttonText = "Start"
-    @State private var trafficColor: TrafficLightColor? 
+    @State private var trafficColor: TrafficLightColor?
     @State private var redLight = TrafficLightState.dark
     @State private var yellowLight = TrafficLightState.dark
     @State private var greenLight = TrafficLightState.dark
@@ -55,6 +40,25 @@ struct ContentView: View {
             break
         }
         trafficColor?.nextLight()
+    }
+}
+
+// MARK: Body
+
+extension ContentView {
+    var body: some View {
+        ZStack {
+            Color(.gray)
+                .ignoresSafeArea()
+            VStack(spacing: 20) {
+                TrafficLightCircle(state: redLight, color: .red)
+                TrafficLightCircle(state: yellowLight, color: .yellow)
+                TrafficLightCircle(state: greenLight, color: .green)
+                Spacer()
+                ActionButton(text: buttonText, action: nextStepTrafficLight)
+            }
+            .padding()
+        }
     }
 }
 

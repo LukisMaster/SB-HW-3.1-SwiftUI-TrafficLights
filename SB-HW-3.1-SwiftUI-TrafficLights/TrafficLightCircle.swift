@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrafficLightCircle: View {
     
-    var state: TrafficLightState = .dark
+    let state: TrafficLightState
     let color: Color
     
     var body: some View {
@@ -29,6 +29,6 @@ struct TrafficLightCircle: View {
 
 struct TrafficLightCircle_Previews: PreviewProvider {
     static var previews: some View {
-        TrafficLightCircle(color: .red)
+        TrafficLightCircle(state: .dark,color: .red)
     }
 }
